@@ -1,0 +1,139 @@
+/* css/styles.css */
+
+/* --- Переменные и Цветовая Палитра (Requirement 3.4) --- */
+:root {
+  --color-primary: #ffc107; /* Золотой/Янтарный для акцентов (Bootstrap Warning) */
+  --color-dark: #1a1a1a; /* Основной фон */
+  --color-medium-dark: #2d2a2a; /* Фон для карточек */
+  --color-text: #e6e6e6; /* Светлый текст */
+  --color-link-hover: #ffd700; /* Чистое золото для hover */
+  --color-shadow: rgba(0, 0, 0, 0.7);
+  --font-base: 16px; /* Базовый размер шрифта для адаптивности */
+}
+
+
+/* --- Глобальные Стили и Фон --- */
+body {
+  background-image: url("1151247.jpg"); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  color: var(--color-text);
+  line-height: 1.6; 
+  font-size: var(--font-base); /* Использование переменной */
+}
+
+/* Наложение тени для лучшей читаемости текста на главной странице */
+main.container {
+  background: rgba(0, 0, 0, 0.7); 
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 40px var(--color-shadow);
+  /* Использование позиционирования (relative) [cite: 28] */
+  position: relative; 
+}
+.gallery-bg body { 
+  background-image: none;
+  background-color: var(--color-dark);
+}
+
+/* --- Шапка и Навигация (Flexbox) --- */
+.site-header {
+  border-bottom: 2px solid var(--color-primary);
+  box-shadow: 0 5px 15px var(--color-shadow);
+  /* Использование позиционирования (fixed) [cite: 28] */
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+.navbar .nav-link {
+  color: var(--color-text) !important;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+.navbar .nav-link:hover, .navbar .nav-link.active { /* Использование :hover [cite: 29] */
+  color: var(--color-primary) !important;
+  text-decoration: none !important; 
+  text-shadow: 0 0 5px var(--color-primary);
+  font-weight: 700;
+}
+.navbar .nav-link.active {
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 5px;
+}
+.logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* --- Таблица (Lore.html) --- */
+.lore-table tbody tr:nth-child(even) { /* Использование :nth-child(even)  */
+    background-color: rgba(255, 193, 7, 0.1); /* Легкий золотой оттенок для четных строк */
+}
+.lore-table th {
+    color: var(--color-primary);
+}
+
+
+/* --- Галерея (CSS Grid, Requirement 3.2) --- */
+.gallery-grid {
+    display: grid; /* Использование Grid  */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+.gallery-item {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+}
+.gallery-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.gallery-thumb:hover {
+    transform: scale(1.05);
+}
+
+/* --- Boss.html Search Bar --- */
+#bossSearch {
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* --- Адаптивный Дизайн (Requirement 4) --- */
+
+/* Медиа-запрос для небольших экранов (Mobile-first adjustment) [cite: 35] */
+@media (max-width: 768px) { 
+  :root {
+    --font-base: 14px; /* Уменьшение шрифта [cite: 41] */
+  }
+
+  /* Header becomes vertical on small screens (Bootstrap's navbar handles this via collapse, but we ensure full width) */
+  .site-header .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Grid items stack (Requirement 4.3 - handled by auto-fit in gallery-grid) */
+  
+  /* Feature cards stack naturally due to row-cols-1 on small screens, but we can adjust padding */
+  main.container {
+    padding: 15px; /* Уменьшение padding [cite: 41] */
+  }
+
+  /* Боссы: убрать большие отступы */
+  .boss-card-item {
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+  }
+}
+
+/* Медиа-запрос для средних экранов (Tablet/Mid-size Desktop) [cite: 35] */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .gallery-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 колонки на планшете */
+  }
+}

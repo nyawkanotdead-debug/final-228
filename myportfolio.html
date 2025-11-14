@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elden Ring — My Portfolio / CRUD</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="gallery-bg">
+  <header class="site-header bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/elden-logo.png" alt="logo" class="me-2 logo" onerror="this.style.display='none'">
+        <span>Elden Ring</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="lore.html">Lore & Mechanics</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link " href="boss.html">Boss</a></li>
+          <li class="nav-item"><a class="nav-link active" href="myportfolio.html">My Portfolio </a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h1 class="text-center text-warning mb-4">Погасший </h1>
+    
+
+    <div class="d-grid gap-2 col-6 mx-auto mb-5">
+        <button class="btn btn-dark btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#registrationModal">
+            Регистрация нового Погасшего 
+        </button>
+    </div>
+
+    <div class="card bg-dark shadow-lg p-4">
+        <h2 class="card-title text-warning">Список Изгнанников Lands Between</h2>
+        <div class="d-flex justify-content-end mb-3">
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addTarnishedModal">
+                <i class="fas fa-plus"></i> Добавить Погасшего 
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-striped lore-table">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Класс</th>
+                        <th>Руны</th>
+                        <th>Статус</th>
+                        <th colspan="2">Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="tarnishedTableBody">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+  </main>
+  
+  <div class="modal fade" id="registrationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark border-warning">
+        <div class="modal-header">
+          <h5 class="modal-title text-warning">Регистрация (Сложная валидация)</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registrationForm" novalidate>
+            <div class="mb-3">
+              <label for="registerName" class="form-label">Имя (Required)</label>
+              <input type="text" id="registerName" class="form-control" required>
+              <div class="invalid-feedback">Требуется имя.</div>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Email (Required, RegEx)</label>
+              <input type="email" id="registerEmail" class="form-control" required>
+              <div class="invalid-feedback">Укажите корректный email (RegEx).</div>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Пароль (Required)</label>
+              <input type="password" id="registerPassword" class="form-control" required>
+              <small id="passwordStrength" class="form-text"></small>
+              <div class="invalid-feedback">Требуется пароль.</div>
+            </div>
+            <div class="mb-3">
+              <label for="registerConfirmPassword" class="form-label">Подтвердите пароль</label>
+              <input type="password" id="registerConfirmPassword" class="form-control" required>
+              <small id="passwordMatchFeedback" class="form-text"></small>
+              <div class="invalid-feedback">Требуется подтверждение пароля.</div>
+            </div>
+            <div id="registerResult" class="mt-3" aria-live="polite"></div>
+            <button class="btn btn-primary w-100 mt-3" type="submit">Зарегистрироваться</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addTarnishedModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark border-success">
+        <div class="modal-header">
+          <h5 class="modal-title text-success">Добавить Погасшего</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addTarnishedForm">
+            <div class="mb-3">
+              <label for="tarnishedName" class="form-label">Имя</label>
+              <input type="text" id="tarnishedName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="tarnishedClass" class="form-label">Класс</label>
+              <input type="text" id="tarnishedClass" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="tarnishedRunes" class="form-label">Руны (начальный)</label>
+              <input type="number" id="tarnishedRunes" class="form-control" value="0" min="0" required>
+            </div>
+            <div class="mb-3">
+                <label for="tarnishedStatus" class="form-label">Статус</label>
+                <select id="tarnishedStatus" class="form-select" required>
+                    <option value="Alive">Alive</option>
+                    <option value="Departed">Departed</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Добавить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <footer class="bg-dark text-white py-3 mt-5">
+    <div class="container d-flex justify-content-between">
+      <small>© 2025 Elden Fan Project</small>
+      <a href="index.html" class="text-white">Back to Home</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

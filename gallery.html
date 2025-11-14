@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elden Ring — Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="gallery-bg">
+  <header class="site-header bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/elden-logo.png" alt="logo" class="me-2 logo" onerror="this.style.display='none'">
+        <span>Elden Ring</span>
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="lore.html">Lore & Mechanics</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link " href="boss.html">Boss</a></li>
+          <li class="nav-item"><a class="nav-link " href="myportfolio.html">My Portfolio</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h1>Галерея Lands Between</h1>
+    <p>Скриншоты, арты и концепты мира Elden Ring.</p>
+
+    <div class="d-flex justify-content-center gap-2 mb-4">
+      <button class="btn btn-primary filter-btn active" data-filter="all">Все</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="landscape">Пейзажи</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="boss">Боссы</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="character">Персонажи</button>
+    </div>
+
+    <div id="eldenCarousel" class="carousel slide" data-bs-ride="carousel">
+      </div>
+    <hr class="my-4">
+
+    <div class="gallery-grid">
+      <div class="gallery-item" data-category="landscape">
+        <img src="castle.webp" class="img-thumbnail gallery-thumb" alt="Ruined Castle" data-full="castle.webp">
+      </div>
+      <div class="gallery-item" data-category="boss">
+        <img src="1378573.jpg" class="img-thumbnail gallery-thumb" alt="Boss Arena" data-full="1378573.jpg">
+      </div>
+      <div class="gallery-item" data-category="landscape">
+        <img src="1378572.jpg" class="img-thumbnail gallery-thumb" alt="Spirit Tree" data-full="1378572.jpg">
+      </div>
+      <div class="gallery-item" data-category="character">
+        <img src="ranni.webp" class="img-thumbnail gallery-thumb" alt="Ranni" data-full="ranni.webp">
+      </div>
+      <div class="gallery-item" data-category="boss">
+        <img src="1219289.png" class="img-thumbnail gallery-thumb" alt="Malenia Concept" data-full="1219289.png">
+      </div>
+      <div class="gallery-item" data-category="character">
+        <img src="tarnished.webp" class="img-thumbnail gallery-thumb"  loading="lazy" alt="Tarnished" data-full="tarnished.webp">
+      </div>
+    </div>
+    
+    <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0">
+            <img id="modalImg" src="" class="img-fluid w-100" alt="Enlarged" loading="lazy">
+          </div>
+          <div class="modal-footer border-0">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-dark text-white py-3 mt-5">
+    <div class="container d-flex justify-content-between">
+      <small>© 2025 Elden Fan Project</small>
+      <a href="index.html" class="text-white">Back to Home</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

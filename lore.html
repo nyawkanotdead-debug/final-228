@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elden Ring — Lore & Mechanics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/elden-logo.png" alt="logo" class="me-2 logo" onerror="this.style.display='none'">
+        <span>Elden Ring</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain2">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="lore.html">Lore & Mechanics</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link " href="boss.html">Boss</a></li>
+          <li class="nav-item"><a class="nav-link " href="myportfolio.html">My Portfolio</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h1>Лор и ключевые механики</h1>
+
+    <p>Здесь кратко рассмотрены важнейшие темы: сюжетные мотивы, система боя, билдостроение и коллекционные предметы.</p>
+
+    <div class="accordion" id="loreAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+            Сюжет и мир
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#loreAccordion">
+          <div class="accordion-body">
+            <p>Мир «Lands Between» наполнен фрагментами древней истории, божественными артефактами и конфликтами между фракциями.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+            Боевая система и ресурсы
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#loreAccordion">
+          <div class="accordion-body">
+            <p>Управление выносливостью, контроль отката умений и правильный выбор экипировки решают исход сражения.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+            Коллекционирование и предметы
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#loreAccordion">
+          <div class="accordion-body">
+            <p>Редкие talismans, ashes, и легендарные мечи - часть коллекционной составляющей игры; некоторые предметы — ключ к скрытым боссам.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <button id="quoteToggle" class="btn btn-warning btn-outline-secondary" type="button">Показать цитату из лора</button>
+      <div id="loreQuote" class="mt-3 p-3 border rounded d-none">
+        «When the Lands Between fracture, so too do the tales of those who fight for the Elden Ring.»
+      </div>
+    </div>
+
+    <hr class="my-4">
+
+    <h2>Сравнение стартовых классов </h2>
+    <p>Таблица демонстрирует основные характеристики некоторых стартовых классов.</p>
+    <div class="table-responsive">
+      <table class="table table-dark table-striped lore-table">
+        <thead>
+          <tr>
+            <th>Класс</th>
+            <th>Уровень</th>
+            <th>Сила (STR)</th>
+            <th>Ловкость (DEX)</th>
+            <th>Колдовство (INT)</th>
+            <th>Вера (FAI)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Warrior</td>
+            <td>8</td>
+            <td>10</td>
+            <td>16</td>
+            <td>10</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>Vagabond</td>
+            <td>9</td>
+            <td>14</td>
+            <td>13</td>
+            <td>9</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>Astrologer</td>
+            <td>6</td>
+            <td>8</td>
+            <td>12</td>
+            <td>16</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>Confessor</td>
+            <td>10</td>
+            <td>12</td>
+            <td>12</td>
+            <td>9</td>
+            <td>14</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="my-4">
+
+    <h2>Критический анализ</h2>
+    <p>Адаптация стиля игры под разные аудитории - важный аспект. В разработке используются механики, поощряющие исследование и эксперименты.</p>
+
+  </main>
+
+  <footer class="bg-dark text-white py-3 mt-5">
+    <div class="container d-flex justify-content-between">
+      <small>© 2025 Elden Fan Project</small>
+      <a href="index.html" class="text-white">Back to Home</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
